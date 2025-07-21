@@ -174,42 +174,40 @@
             </p>
         </div>
     </section>
+<div class="flex justify-center">
+  <form class="payform-tbank bg-white rounded-lg shadow-md p-6" method="POST" action="https://securepay.tinkoff.ru/v2/Init">
+    <input class="payform-tbank-row" type="hidden" name="terminalkey" value="1752919288756DEMO">
 
-  <form class="payform-tbank" method="POST" action="https://securepay.tinkoff.ru/v2/Init">
-  <!-- Тестовый TerminalKey -->
-  <input class="payform-tbank-row" type="hidden" name="terminalkey" value="1752919288756DEMO">
+    <input class="payform-tbank-row w-full mb-4" type="text" name="email" placeholder="Ваш e-mail" required>
+    <input class="payform-tbank-row w-full mb-4" type="text" name="phone" placeholder="Телефон" required>
 
-  <!-- Email и телефон покупателя -->
-  <input class="payform-tbank-row" type="text" name="email" placeholder="Ваш e-mail" required>
-  <input class="payform-tbank-row" type="text" name="phone" placeholder="Телефон" required>
+    <input type="hidden" name="amount" value="49000">
+    <input type="hidden" name="frame" value="true">
+    <input type="hidden" name="language" value="ru">
 
-  <!-- Сумма оплаты: 490 рублей = 49000 копеек -->
-  <input class="payform-tbank-row" type="hidden" name="amount" value="49000">
+    <input type="hidden" name="receipt" value='{
+      "Email":"", 
+      "Phone":"", 
+      "Taxation":"osn",
+      "Items":[
+        {
+          "Name":"Доступ в Club Y",
+          "Price":49000,
+          "Quantity":1,
+          "Amount":49000,
+          "Tax":"none",
+          "PaymentObject":"service",
+          "PaymentMethod":"full_prepayment"
+        }
+      ]
+    }'>
 
-  <!-- Открыть платёж во фрейме -->
-  <input class="payform-tbank-row" type="hidden" name="frame" value="true">
-  <input class="payform-tbank-row" type="hidden" name="language" value="ru">
+    <button type="submit" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded w-full">
+      Оплатить и участвовать
+    </button>
+  </form>
+</div>
 
-  <!-- Чек -->
-  <input class="payform-tbank-row" type="hidden" name="receipt" value='{
-    "Email":"", 
-    "Phone":"", 
-    "Taxation":"osn",
-    "Items":[
-      {
-        "Name":"Доступ в Club Y",
-        "Price":49000,
-        "Quantity":1,
-        "Amount":49000,
-        "Tax":"none",
-        "PaymentObject":"service",
-        "PaymentMethod":"full_prepayment"
-      }
-    ]
-  }'>
-
-  <button type="submit">Оплатить и участвовать</button>
-</form>
 
 
     </section>
