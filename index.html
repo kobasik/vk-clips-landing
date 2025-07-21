@@ -175,23 +175,22 @@
         </div>
     </section>
 
-    <!-- Payment Form Section -->
-    <section id="payment-form" class="section-padding bg-vk-blue text-white rounded-lg shadow-lg mx-4 md:mx-auto max-w-6xl mb-12">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Записаться и оплатить</h2>
-            <p class="text-lg text-white font-medium">Заполните форму, чтобы забронировать место на интенсиве.</p>
-        </div>
-        <form class="payform-tbank" method="POST" action="https://securepay.tinkoff.ru/v2/Init">
+  <form class="payform-tbank" method="POST" action="https://securepay.tinkoff.ru/v2/Init">
+  <!-- Тестовый TerminalKey -->
   <input class="payform-tbank-row" type="hidden" name="terminalkey" value="1752919288756DEMO">
 
+  <!-- Email и телефон покупателя -->
   <input class="payform-tbank-row" type="text" name="email" placeholder="Ваш e-mail" required>
   <input class="payform-tbank-row" type="text" name="phone" placeholder="Телефон" required>
 
+  <!-- Сумма оплаты: 490 рублей = 49000 копеек -->
   <input class="payform-tbank-row" type="hidden" name="amount" value="49000">
 
+  <!-- Открыть платёж во фрейме -->
   <input class="payform-tbank-row" type="hidden" name="frame" value="true">
   <input class="payform-tbank-row" type="hidden" name="language" value="ru">
 
+  <!-- Чек -->
   <input class="payform-tbank-row" type="hidden" name="receipt" value='{
     "Email":"", 
     "Phone":"", 
@@ -209,7 +208,9 @@
     ]
   }'>
 
-  <button type="submit">Оплатить и участвовать</bu
+  <button type="submit">Оплатить и участвовать</button>
+</form>
+
 
     </section>
 
