@@ -181,25 +181,36 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Записаться и оплатить</h2>
             <p class="text-lg text-white font-medium">Заполните форму, чтобы забронировать место на интенсиве.</p>
         </div>
-        <form class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-2xl-custom text-gray-800 border-4 border-vk-blue">
-            <div class="mb-6">
-                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Ваше имя:</label>
-                <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-vk-blue" placeholder="Иван Иванов" required>
-            </div>
-            <div class="mb-6">
-                <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Телефон:</label>
-                <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-vk-blue" placeholder="+7 (XXX) XXX-XX-XX" required>
-            </div>
-            <div class="mb-8">
-                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-vk-blue" placeholder="your@email.com" required>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="vk-blue vk-blue-hover text-white font-bold py-4 px-8 rounded-full text-lg md:text-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg w-full">
-                    Оплатить и участвовать
-                </button>
-            </div>
-        </form>
+        <form class="payform-tbank" method="POST" action="https://securepay.tinkoff.ru/v2/Init">
+  <input class="payform-tbank-row" type="hidden" name="terminalkey" value="1752919288756DEMO">
+
+  <input class="payform-tbank-row" type="text" name="email" placeholder="Ваш e-mail" required>
+  <input class="payform-tbank-row" type="text" name="phone" placeholder="Телефон" required>
+
+  <input class="payform-tbank-row" type="hidden" name="amount" value="49000">
+
+  <input class="payform-tbank-row" type="hidden" name="frame" value="true">
+  <input class="payform-tbank-row" type="hidden" name="language" value="ru">
+
+  <input class="payform-tbank-row" type="hidden" name="receipt" value='{
+    "Email":"", 
+    "Phone":"", 
+    "Taxation":"osn",
+    "Items":[
+      {
+        "Name":"Доступ в Club Y",
+        "Price":49000,
+        "Quantity":1,
+        "Amount":49000,
+        "Tax":"none",
+        "PaymentObject":"service",
+        "PaymentMethod":"full_prepayment"
+      }
+    ]
+  }'>
+
+  <button type="submit">Оплатить и участвовать</bu
+
     </section>
 
     <!-- Footer -->
